@@ -24,7 +24,13 @@ app.use(cors({
 // API Routes with /api prefix
 app.use("/api",IndexRoute)
 
+// Serve static files from the public directory
+app.use(express.static(path.join(__dirname, 'public')));
 
+// Catch all handler: send back React's index.html file for any non-API routes
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'index.html'));
+});
 
 app.use(customErrorHandler)
 
