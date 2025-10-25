@@ -1,8 +1,4 @@
 const mongoose = require("mongoose")
-const dns = require('dns');
-
-// Use Google's DNS servers to resolve SRV records
-dns.setServers(['8.8.8.8', '8.8.4.4']);
 
 const connectDatabase =async  () => {
 
